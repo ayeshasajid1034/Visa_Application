@@ -59,3 +59,10 @@ Edit/Delete an Application: Use the 'Edit' or 'Delete' links next to each applic
 Additional Information
 The application uses Bootstrap 4 for styling. Customize the styles in the wwwroot/css directory.
 If encountering any issues during setup or operations, ensure all configurations in appsettings.json are correct and that SQL Server is accessible.
+
+
+### Sample UI is attached too for rough reference
+![VA1](https://github.com/user-attachments/assets/6a9e5e45-e0df-48bd-851a-57ab35200598)
+![VA2](https://github.com/user-attachments/assets/daba72d9-16a0-4131-8d90-3d905adb558b)
+
+
