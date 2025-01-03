@@ -1,0 +1,66 @@
+﻿@model VisaApplicationManager.Models.VisaApplication
+
+@{
+    ViewData["Title"] = "Create Visa Application";
+}
+
+<h1>Create Visa Application</h1>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label"></label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        <!-- Other input fields -->
+        <div class="form-group">
+            <label asp-for="PassportCopyFile" class="control-label"></label>
+            <input asp-for="PassportCopyFile" type="file" class="form-control" accept=".jpg,.jpeg,.png,.pdf" />
+            <span asp-validation-for="PassportCopyFile" class="text-danger"></span>
+        </div>
+        <!-- Submit button -->
+    </form>
+
+
+    <div class="form-group">
+        <label asp-for="VisaType">Visa Type</label>
+        <select asp-for="VisaType" class="form-control">
+            <option value="">Please select</option>
+            @foreach (var type in new string[] { "Tourist", "Work", "Student" })
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="CountryOfApplication" class="control-label"></label>
+        <input asp-for="CountryOfApplication" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ApplicationStatus" class="control-label">Application Status</label>
+        <select asp-for="ApplicationStatus" class="form-control">
+            <option value="">Select Status</option>
+            @foreach (var status in new string[] { "Submitted", "In Process", "Approved", "Rejected" })
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
